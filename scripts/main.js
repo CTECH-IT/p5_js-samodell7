@@ -1,19 +1,36 @@
-//kinda makes a space ship
+function preload() {
+  img = loadImage('Sprite.png');
+}
+
 function setup() {
-    createCanvas(300, 300);
-  }
+  createCanvas(windowWidth, windowHeight);
+  angleMode(degrees);
+  rectMode(CENTER);
+  ctx = drawingContext;
+  x = width/2;
+  y= height/2;
+  textAlign(CENTER,CENTER);
+  textFont('Lobster');
+
   
-  function draw() {
-    background(32);
-    ship(100,200,50,50);
-  }
   
-  function ship(bodyX,bodyY,bodyW,bodyH){
-  fill(255,255,255)
-  rect(bodyX,bodyY,bodyW,bodyH)
-    
-    fill(255,0,0)
-    triangle(bodyX,bodyY,bodyX+bodyW/2,height-bodyY+40,bodyX+bodyW,bodyY)
-    
-    fill(255,100,0); triangle(bodyX+5,height-bodyX/2,bodyX+bodyW/2,height-bodyX+bodyX*.9,bodyX+bodyW-5,height-bodyX/2)
+  background(random(255),random(255),random(255))
+
+  
+  
+  for (let i = 0; i < 45; i++) {
+    fill(random(255), random(255), random(255), random(255));
+    rect(random(width+-30), random(height+-30), random(x), random(x) );
   }
+  imageMode(CENTER);
+}
+
+/*function draw() {
+  
+  image(img, random(width), random(height), 900, 200,);
+}*/
+
+function mouseIsPressed(){
+  image(img, random(width), random(height), 900, 200,);
+}
+
