@@ -1,36 +1,31 @@
-function preload() {
-  img = loadImage('Sprite.png');
+let img;
+
+function preload(){
+img = loadImage('img/Dlo.webp');
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  angleMode(degrees);
-  rectMode(CENTER);
-  ctx = drawingContext;
-  x = width/2;
-  y= height/2;
-  textAlign(CENTER,CENTER);
-  textFont('Lobster');
-
-  
-  
-  background(random(255),random(255),random(255))
-
-  
-  
-  for (let i = 0; i < 45; i++) {
-    fill(random(255), random(255), random(255), random(255));
-    rect(random(width+-30), random(height+-30), random(x), random(x) );
+ 
+  let cnv = createCanvas(img.width, img.height);
+  let newCanvasX = (windowWidth- img.width)/2;
+  let newCanvasY = (windowHeight- img.height)/2;
+  cnv.position(newCanvasX, newCanvasY);
+  for(let col = 0; col< img.width; col++){
+    for(let row = 0; row < img.height; row++){
+      let xPos = col;
+      let yPos = row;
+      let c = img.get(xPos,yPos);
+      push();
+      translate(xPos, yPos);
+      stroke(color(c));
+      strokeWeight(60);
+      point(col,row);
+      rect(col, row, 25, 25);
+    }
   }
-  imageMode(CENTER);
 }
 
-/*function draw() {
+function draw() {
   
-  image(img, random(width), random(height), 900, 200,);
-}*/
-
-function mouseIsPressed(){
-  image(img, random(width), random(height), 900, 200,);
 }
 
