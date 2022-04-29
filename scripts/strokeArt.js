@@ -17,9 +17,9 @@ function setup() {
       let c = img.get(xPos,yPos);
       push();
       translate(xPos, yPos);
-      rotate(random(radians(360)));
+      rotate(noise(radians(360)));
       noFill();
-      strokeWeight(random(2));
+      strokeWeight(noise(2));
       stroke(color(c))
       curve(xPos, yPos, sin(xPos)*random(20), cos(xPos) * sin(xPos) * random(20), random(10), random(20), cos(yPos) *sin(xPos) * random(20), cos(yPos) * sin(xPos) *random(20)) 
       pop();
